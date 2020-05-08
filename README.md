@@ -8,7 +8,7 @@ Why not? Ponies are cool! Pinkie Pie is the most awesome of all! So tell me why 
 
 If you need a justification, though. I know that the developers in my team work really really hard. Unfortunately, the immense brain activity always results in huge amounts of stress. Ponies here are a "comic relief", a coping mechanism to relieve tension and reduce the amount of stress everyone is experiencing.
 
-I have a Slack app, which posts to #pony_of_the_day channel three times a day, saying "Good morning" at 9am, asking if the channel members had already had a lunch around noon and wishing the perfect rest of the day at 5pm. I hope this brings a smile to the members of #pony_of_the_day and they feel a little bit better every time they see a pony.
+I have a Slack app, which posts to #pony_of_the_day channel three times a day, saying "Good morning" at 9am, asking if the channel members had already had a lunch around noon and wishing the perfect rest of the day at 5pm. I hope this brings a smile to the members of #pony_of_the_day faces and they feel a little bit better every time they see a pony.
 
 ## Installation and Usage
 
@@ -22,14 +22,14 @@ You absolutely must create and configure a Slack App before you can post images 
 
 Then you must copy `slack.config.dist` to `slack.config` and manually set up all the values.
 
-The `slack` script has only one optional parrameter, which is the image comment. If you do not provide one, then the one in `CONFIG[message]` is used as fall back.
+The `slack` script has only one optional parameter, which is the image comment. If you do not provide one, then the one in `CONFIG[message]` is used as fall back.
 
 ```
-[akarshin@localhost yourlittlepony]$ slack                                  ### This will send the defaul message, which is "Pony Of The Day!"
-[akarshin@localhost yourlittlepony]$ slack "Good morning!"                  ### This will send "Good morning!"
+[akarshin@localhost yourlittlepony]$ ./slack                    ### This will send the defaul message, which is "Pony Of The Day!" or whatever you set up
+[akarshin@localhost yourlittlepony]$ ./slack "Good morning!"    ### This will send "Good morning!"
 ```
 
-After you're done with installation, you can set up cron, which would call `slack` script, for a bit of automation. Otherwise you'd have to run the script manually.
+After you're done with installation, you can set up cron, which could call the `slack` script, for a bit of automation. Otherwise you'd have to run the script manually.
 
 #### How does it look on Slack?
 

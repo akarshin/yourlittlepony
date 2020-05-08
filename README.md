@@ -41,4 +41,4 @@ After you're done with installation, you can set up cron, which would call `slac
 
 My Little Pony, all images, animations, characters and other works are trademarks of Hasbro, Inc. © 1999 Hasbro, Inc. All Rights Reserved. However, I use it solely for non-profit non-commercial activities, but rather for comment and/or criticism in insignificantly small quantity with absolutely no effect on the market or potential market for copyrighted work with restricted access to an appropriate group, which would be considered Fair Use according to Copyright Law Section 107 (and possibly other) of the US Copyright Act.
 
-The MIT Licence this repository uses is applied to everything, but the copyrighted works described in the previous paragraph, the code, documentation and other.
+The MIT Licence this repository uses is applied to everything, but the copyrighted works described in the previous paragraph, i.e. the code, documentation and other.

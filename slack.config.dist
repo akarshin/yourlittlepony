@@ -1,0 +1,17 @@
+#!/bin/sh
+
+declare -A CONFIG
+
+# Default comment to send with the file.
+CONFIG[message]="Pony Of The Day!"
+
+# List of channels to send the image to.
+# This is a string with commas as delimiters, NOT an array.
+CONFIG[channels]="general,pony_of_the_day"
+
+# You must have a Slack app set up and it will provide you with a token.
+# It typically starts with xoxa, xoxb or xoxp.
+CONFIG[token]="xoxa-xxxxxxxxxx-xxxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Provide your slack organization.
+CONFIG[organization]="organization.slack.com"

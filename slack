@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Resolve the full path to the script
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
+# Grab a random image
+FILE=$DIR/screens/$(ls $DIR/screens | sort -R | tail -1)
+
+if [ ! -r $DIR/slack.config ]; then
+  echo -e "\e[41m                                          \e[0m"
+  echo -e "\e[1;41m    Configuration file does not exist!    \e[0m"
+  echo -e "\e[41m                                          \e[0m"
+  echo ""
+  echo -e "\e[41m                                                                                                              \e[0m"
+  echo -e "\e[1;41;37m    You are required to explicitly copy \e[0m\e[1;41;33mslack.config.dist\e[0m\e[1;41;37m to \e[0m\e[1;41;33mslack.config\e[0m\e[1;41;37m and to further edit it manually.    \e[0m"
+  echo -e "\e[41m                                                                                                              \e[0m"
+  exit 1
+fi
+
+source $DIR/slack.config
+
+# If no argument to the script is provided, set it to default message
+
+MESSAGE=$1
+
+if [ -z $1 ]; then
+  MESSAGE=${CONFIG[message]}
+fi
+
+# Send this image to Slack
+curl -F file=@$FILE -F "initial_comment=$MESSAGE" -F channels=${CONFIG[channels]} -F "token=${CONFIG[token]}" https://${CONFIG[organization]}/api/files.upload
